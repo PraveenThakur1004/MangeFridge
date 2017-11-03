@@ -14,6 +14,7 @@
 		04B084041FAC983B0058BF55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B084021FAC983B0058BF55 /* LaunchScreen.storyboard */; };
 		04B0840F1FAC983B0058BF55 /* MangeFridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0840E1FAC983B0058BF55 /* MangeFridgeTests.swift */; };
 		04B0841A1FAC983B0058BF55 /* MangeFridgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B084191FAC983B0058BF55 /* MangeFridgeUITests.swift */; };
+		300D658AF869BA915173F4D3 /* Pods_MangeFridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,9 @@
 		04B084151FAC983B0058BF55 /* MangeFridgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangeFridgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B084191FAC983B0058BF55 /* MangeFridgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangeFridgeUITests.swift; sourceTree = "<group>"; };
 		04B0841B1FAC983B0058BF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E790B910A2BEF2A1E984557 /* Pods-MangeFridge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangeFridge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge.debug.xcconfig"; sourceTree = "<group>"; };
+		7130C4B661A979D380CC7322 /* Pods-MangeFridge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangeFridge.release.xcconfig"; path = "Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge.release.xcconfig"; sourceTree = "<group>"; };
+		9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangeFridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300D658AF869BA915173F4D3 /* Pods_MangeFridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0049F99783C5F0AAA382E9AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		04B083ED1FAC983B0058BF55 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,8 @@
 				04B0840D1FAC983B0058BF55 /* MangeFridgeTests */,
 				04B084181FAC983B0058BF55 /* MangeFridgeUITests */,
 				04B083F71FAC983B0058BF55 /* Products */,
+				B1041980F9DA29C6FB90B782 /* Pods */,
+				0049F99783C5F0AAA382E9AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +140,15 @@
 			path = MangeFridgeUITests;
 			sourceTree = "<group>";
 		};
+		B1041980F9DA29C6FB90B782 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E790B910A2BEF2A1E984557 /* Pods-MangeFridge.debug.xcconfig */,
+				7130C4B661A979D380CC7322 /* Pods-MangeFridge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B0841E1FAC983B0058BF55 /* Build configuration list for PBXNativeTarget "MangeFridge" */;
 			buildPhases = (
+				18530694EB5165A8F26DB110 /* [CP] Check Pods Manifest.lock */,
 				04B083F21FAC983B0058BF55 /* Sources */,
 				04B083F31FAC983B0058BF55 /* Frameworks */,
 				04B083F41FAC983B0058BF55 /* Resources */,
+				D78FB62C1C00AA9D6586EA56 /* [CP] Embed Pods Frameworks */,
+				0E539841035085EB1F8895A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E539841035085EB1F8895A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18530694EB5165A8F26DB110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MangeFridge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D78FB62C1C00AA9D6586EA56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04B083F21FAC983B0058BF55 /* Sources */ = {
@@ -424,6 +511,7 @@
 		};
 		04B0841F1FAC983B0058BF55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E790B910A2BEF2A1E984557 /* Pods-MangeFridge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +526,7 @@
 		};
 		04B084201FAC983B0058BF55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7130C4B661A979D380CC7322 /* Pods-MangeFridge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
