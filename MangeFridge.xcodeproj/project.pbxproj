@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		04B083FA1FAC983B0058BF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083F91FAC983B0058BF55 /* AppDelegate.swift */; };
-		04B083FC1FAC983B0058BF55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083FB1FAC983B0058BF55 /* ViewController.swift */; };
-		04B083FF1FAC983B0058BF55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B083FD1FAC983B0058BF55 /* Main.storyboard */; };
+		04B083FC1FAC983B0058BF55 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083FB1FAC983B0058BF55 /* LogInViewController.swift */; };
+		04B083FF1FAC983B0058BF55 /* Base.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B083FD1FAC983B0058BF55 /* Base.storyboard */; };
 		04B084011FAC983B0058BF55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B084001FAC983B0058BF55 /* Assets.xcassets */; };
 		04B084041FAC983B0058BF55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B084021FAC983B0058BF55 /* LaunchScreen.storyboard */; };
 		04B0840F1FAC983B0058BF55 /* MangeFridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0840E1FAC983B0058BF55 /* MangeFridgeTests.swift */; };
 		04B0841A1FAC983B0058BF55 /* MangeFridgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B084191FAC983B0058BF55 /* MangeFridgeUITests.swift */; };
+		04B0842E1FAC9BD20058BF55 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B0842D1FAC9BD20058BF55 /* Menu.storyboard */; };
+		04B084301FAC9C5D0058BF55 /* SignUpViwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0842F1FAC9C5D0058BF55 /* SignUpViwController.swift */; };
 		300D658AF869BA915173F4D3 /* Pods_MangeFridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +39,8 @@
 /* Begin PBXFileReference section */
 		04B083F61FAC983B0058BF55 /* MangeFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangeFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B083F91FAC983B0058BF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04B083FB1FAC983B0058BF55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04B083FE1FAC983B0058BF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04B083FB1FAC983B0058BF55 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		04B083FE1FAC983B0058BF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Base.storyboard; sourceTree = "<group>"; };
 		04B084001FAC983B0058BF55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B084031FAC983B0058BF55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B084051FAC983B0058BF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		04B084151FAC983B0058BF55 /* MangeFridgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MangeFridgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B084191FAC983B0058BF55 /* MangeFridgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangeFridgeUITests.swift; sourceTree = "<group>"; };
 		04B0841B1FAC983B0058BF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B0842D1FAC9BD20058BF55 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		04B0842F1FAC9C5D0058BF55 /* SignUpViwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViwController.swift; sourceTree = "<group>"; };
 		2E790B910A2BEF2A1E984557 /* Pods-MangeFridge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangeFridge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge.debug.xcconfig"; sourceTree = "<group>"; };
 		7130C4B661A979D380CC7322 /* Pods-MangeFridge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangeFridge.release.xcconfig"; path = "Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge.release.xcconfig"; sourceTree = "<group>"; };
 		9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangeFridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,11 +116,13 @@
 		04B083F81FAC983B0058BF55 /* MangeFridge */ = {
 			isa = PBXGroup;
 			children = (
-				04B083F91FAC983B0058BF55 /* AppDelegate.swift */,
-				04B083FB1FAC983B0058BF55 /* ViewController.swift */,
-				04B083FD1FAC983B0058BF55 /* Main.storyboard */,
+				04B0842C1FAC9B2E0058BF55 /* Api's */,
+				04B084281FAC9A6E0058BF55 /* Utility */,
+				04B084271FAC9A620058BF55 /* Model */,
+				04B0842B1FAC9AE70058BF55 /* Helper */,
+				04B0842A1FAC9A930058BF55 /* Controller's */,
+				04B084291FAC9A810058BF55 /* View's */,
 				04B084001FAC983B0058BF55 /* Assets.xcassets */,
-				04B084021FAC983B0058BF55 /* LaunchScreen.storyboard */,
 				04B084051FAC983B0058BF55 /* Info.plist */,
 			);
 			path = MangeFridge;
@@ -138,6 +144,54 @@
 				04B0841B1FAC983B0058BF55 /* Info.plist */,
 			);
 			path = MangeFridgeUITests;
+			sourceTree = "<group>";
+		};
+		04B084271FAC9A620058BF55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04B084281FAC9A6E0058BF55 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		04B084291FAC9A810058BF55 /* View's */ = {
+			isa = PBXGroup;
+			children = (
+				04B084021FAC983B0058BF55 /* LaunchScreen.storyboard */,
+				04B083FD1FAC983B0058BF55 /* Base.storyboard */,
+				04B0842D1FAC9BD20058BF55 /* Menu.storyboard */,
+			);
+			path = "View's";
+			sourceTree = "<group>";
+		};
+		04B0842A1FAC9A930058BF55 /* Controller's */ = {
+			isa = PBXGroup;
+			children = (
+				04B083F91FAC983B0058BF55 /* AppDelegate.swift */,
+				04B083FB1FAC983B0058BF55 /* LogInViewController.swift */,
+				04B0842F1FAC9C5D0058BF55 /* SignUpViwController.swift */,
+			);
+			path = "Controller's";
+			sourceTree = "<group>";
+		};
+		04B0842B1FAC9AE70058BF55 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		04B0842C1FAC9B2E0058BF55 /* Api's */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Api's";
 			sourceTree = "<group>";
 		};
 		B1041980F9DA29C6FB90B782 /* Pods */ = {
@@ -261,7 +315,8 @@
 			files = (
 				04B084041FAC983B0058BF55 /* LaunchScreen.storyboard in Resources */,
 				04B084011FAC983B0058BF55 /* Assets.xcassets in Resources */,
-				04B083FF1FAC983B0058BF55 /* Main.storyboard in Resources */,
+				04B083FF1FAC983B0058BF55 /* Base.storyboard in Resources */,
+				04B0842E1FAC9BD20058BF55 /* Menu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,15 +379,19 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -346,7 +405,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B083FC1FAC983B0058BF55 /* ViewController.swift in Sources */,
+				04B084301FAC9C5D0058BF55 /* SignUpViwController.swift in Sources */,
+				04B083FC1FAC983B0058BF55 /* LogInViewController.swift in Sources */,
 				04B083FA1FAC983B0058BF55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,12 +443,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04B083FD1FAC983B0058BF55 /* Main.storyboard */ = {
+		04B083FD1FAC983B0058BF55 /* Base.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04B083FE1FAC983B0058BF55 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Base.storyboard;
 			sourceTree = "<group>";
 		};
 		04B084021FAC983B0058BF55 /* LaunchScreen.storyboard */ = {

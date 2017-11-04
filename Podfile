@@ -5,8 +5,8 @@ target 'MangeFridge' do
   use_frameworks!
         pod 'AlamofireImage', '~> 3.3'
         pod 'NVActivityIndicatorView', '~> 4.0'
-        pod 'TagListView', '~> 1.3' 
-
-
+        pod 'TagListView', '~> 1.3'
+        pod 'IQKeyboardManagerSwift', '~> 5.0'
+        pod 'TransitionButton', '~> 0.3'
 
 end
