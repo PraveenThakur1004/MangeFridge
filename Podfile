@@ -8,5 +8,7 @@ target 'MangeFridge' do
         pod 'TagListView', '~> 1.3'
         pod 'IQKeyboardManagerSwift', '~> 5.0'
         pod 'TransitionButton', '~> 0.3'
+        pod 'InteractiveSideMenu'
+        pod 'FTIndicator', '~> 1.2'
 
 end

@@ -1,14 +1,14 @@
 //
-//  SignUpViwController.swift
+//  ProfileViewController.swift
 //  MangeFridge
 //
-//  Created by MAC on 03/11/17.
+//  Created by MAC on 05/11/17.
 //  Copyright © 2017 Orem. All rights reserved.
 //
 
 import UIKit
 
-class SignUpViwController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

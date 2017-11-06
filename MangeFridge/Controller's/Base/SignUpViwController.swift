@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignUpViwController.swift
 //  MangeFridge
 //
 //  Created by MAC on 03/11/17.
@@ -8,18 +8,20 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class SignUpViwController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+  
 
 }
-

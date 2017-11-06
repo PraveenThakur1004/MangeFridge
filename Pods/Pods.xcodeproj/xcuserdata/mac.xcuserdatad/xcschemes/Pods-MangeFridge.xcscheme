@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E240D90509B5AEDD6A4CAB5EB1D5782"
+               BlueprintIdentifier = "1ACB15D14E31936D19231361FD64F765"
                BuildableName = "Pods_MangeFridge.framework"
                BlueprintName = "Pods-MangeFridge"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E240D90509B5AEDD6A4CAB5EB1D5782"
+            BlueprintIdentifier = "1ACB15D14E31936D19231361FD64F765"
             BuildableName = "Pods_MangeFridge.framework"
             BlueprintName = "Pods-MangeFridge"
             ReferencedContainer = "container:Pods.xcodeproj">
