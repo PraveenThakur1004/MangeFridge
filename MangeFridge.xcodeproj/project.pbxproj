@@ -43,6 +43,7 @@
 		044750851FAD86DC00EE8C73 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750741FAD86DB00EE8C73 /* CustomTextFieldView.swift */; };
 		044750861FAD86DC00EE8C73 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750751FAD86DB00EE8C73 /* AppLabel.swift */; };
 		044750891FAD872700EE8C73 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750881FAD872700EE8C73 /* ForgetPasswordViewController.swift */; };
+		046F2F921FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 046F2F911FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF */; };
 		04872C6B1FAF66F100D7ED66 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04872C6A1FAF66F100D7ED66 /* FavouriteTableViewController.swift */; };
 		04B083FA1FAC983B0058BF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083F91FAC983B0058BF55 /* AppDelegate.swift */; };
 		04B083FC1FAC983B0058BF55 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083FB1FAC983B0058BF55 /* LogInViewController.swift */; };
@@ -110,6 +111,7 @@
 		044750741FAD86DB00EE8C73 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		044750751FAD86DB00EE8C73 /* AppLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		044750881FAD872700EE8C73 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		046F2F911FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PROXIMASANSREGULAR REGULAR.TTF"; sourceTree = "<group>"; };
 		04872C6A1FAF66F100D7ED66 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		04B083F61FAC983B0058BF55 /* MangeFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangeFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B083F91FAC983B0058BF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		04B084281FAC9A6E0058BF55 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				046F2F911FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF */,
 				04078CC71FAF4066007196E0 /* Extensions.swift */,
 				04078CC51FAF4028007196E0 /* Utils.swift */,
 			);
@@ -492,6 +495,7 @@
 				04B084011FAC983B0058BF55 /* Assets.xcassets in Resources */,
 				04B083FF1FAC983B0058BF55 /* Base.storyboard in Resources */,
 				04B0842E1FAC9BD20058BF55 /* Menu.storyboard in Resources */,
+				046F2F921FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

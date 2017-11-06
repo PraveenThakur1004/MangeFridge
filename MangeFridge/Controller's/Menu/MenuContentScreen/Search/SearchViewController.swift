@@ -7,29 +7,38 @@
 //
 
 import UIKit
-
-class SearchViewController: UIViewController {
+import  InteractiveSideMenu
+class SearchViewController: UIViewController,SideMenuItemContent {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Hide NavigationBar
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.SetBackBarButtonCustom()
+    }
+    //MARK- Navigation Back Button
+    func SetBackBarButtonCustom()
+    {
+        //Back buttion
+        let btnLeftMenu: UIButton = UIButton()
+       // btnLeftMenu.setImage(UIImage(named: "leftback"), for: UIControlState())
+        btnLeftMenu.addTarget(self, action: #selector(self.onClcikBack), for: UIControlEvents.touchUpInside)
+        btnLeftMenu.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let barButton = UIBarButtonItem(customView: btnLeftMenu)
+        self.navigationItem.leftBarButtonItem = barButton
+    }
+    //Navigation back button action
+    @objc func onClcikBack()
+    {
+        showSideMenu()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+
+

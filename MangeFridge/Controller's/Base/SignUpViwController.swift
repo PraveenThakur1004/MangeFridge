@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import TransitionButton
 class SignUpViwController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,13 +15,30 @@ class SignUpViwController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Hide NavigationBar
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-
-  
-
+    @IBAction func actionSignUp(_ button: TransitionButton) {
+        button.startAnimation() // 2: Then start the animation when the user tap the button
+        let qualityOfServiceClass = DispatchQoS.QoSClass.background
+        let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
+        backgroundQueue.async(execute: {
+            
+            sleep(3) // 3: Do your networking task or background work here.
+            
+            DispatchQueue.main.async(execute: { () -> Void in
+                // 4: Stop the animation, here you have three options for the `animationStyle` property:
+                // .expand: useful when the task has been compeletd successfully and you want to expand the button and transit to another view controller in the completion callback
+                // .shake: when you want to reflect to the user that the task did not complete successfly
+                // .normal
+                button.stopAnimation(animationStyle: .expand, completion: {
+                    self.performSegue(withIdentifier: "showMenuViews", sender: self)
+                    
+                })
+            })
+        })
+    }
 }
+
