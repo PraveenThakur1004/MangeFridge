@@ -27,7 +27,7 @@ class Utils:NSObject
             "!*'();:@&=+$,/?%#[]" as CFString!, //you can add another special characters
             CFStringBuiltInEncodings.UTF8.rawValue
         );
-        return parsedStr as! String;
+        return parsedStr! as String;
     }
     //MARK:- Validations
     //Check email vaildity
@@ -58,7 +58,7 @@ class Utils:NSObject
         
     }
     //Check username validation
-    func isValidInput(Input:String) -> Bool {
+    class  func isValidInput(Input:String) -> Bool {
         let RegEx = "\\A\\w{7,18}\\z"
         let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
         return Test.evaluate(with: Input)

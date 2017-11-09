@@ -16,18 +16,16 @@ import UIKit
     var thumbView = UIView()
     var underLine = UIView()
     
-    var items: [String] = ["Item 1", "Item 2"] {
+    var items: [String] = ["Quick Search", "Advance Search"] {
         didSet {
             setupLabels()
         }
     }
-    
     var selectedIndex : Int = 0 {
         didSet {
             displayNewSelectedIndex()
         }
     }
-    
     @IBInspectable var selectedLabelColor : UIColor = UIColor.white {
         didSet {
             setSelectedColors()
@@ -51,8 +49,8 @@ import UIKit
             self.setUnderline(ofColor: borderColor, andSize: borderSize)
         }
     }
-    
-    @IBInspectable var font : UIFont! = UIFont.systemFont(ofSize: 12) {
+   
+    @IBInspectable var font : UIFont! = UIFont(name: "Avenir-Book", size: 14) {
         didSet {
             setFont()
         }
@@ -64,7 +62,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var thumUnderLineSize:CGFloat = 10 {
+    @IBInspectable var thumUnderLineSize:CGFloat = 3 {
         didSet {
             self.layoutSubviews()
         }
@@ -82,7 +80,7 @@ import UIKit
     }
     
     func setupView(){
-        backgroundColor = UIColor.clear
+       // backgroundColor = UIColor.clear
         setupLabels()
         addIndividualItemConstraints(items: labels, mainView: self, padding: 0)
         insertSubview(thumbView, at: 0)
@@ -106,7 +104,7 @@ import UIKit
             label.text = items[index - 1]
             label.backgroundColor = UIColor.clear
             label.textAlignment = .center
-            label.font = UIFont(name: "Avenir-Black", size: 15)
+            label.font = UIFont(name: "Avenir-Book", size: 14)
             label.textColor = index == 1 ? selectedLabelColor : unselectedLabelColor
             label.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(label)

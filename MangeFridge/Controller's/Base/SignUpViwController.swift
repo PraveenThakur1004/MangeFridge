@@ -6,21 +6,70 @@
 //  Copyright © 2017 Orem. All rights reserved.
 //
 
-import UIKit
-import TransitionButton
+import  UIKit
+import  TransitionButton
+import  FTIndicator
 class SignUpViwController: UIViewController {
-
+    
+    @IBOutlet weak var imageView_User: CircleImageView!
+    @IBOutlet weak var txtFld_ConfirmPassword: UITextField!
+    @IBOutlet weak var txtFld_Password: UITextField!
+    @IBOutlet weak var txtFld_Email: UITextField!
+    @IBOutlet weak var txtFld_UserName: UITextField!
+    var picker:UIImagePickerController?=UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //Hide NavigationBar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    @IBAction func back(sender:UIButton){
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func action_ShowImagePicker(_ sender: Any) {
+        self.showActionSheet()
     }
     @IBAction func actionSignUp(_ button: TransitionButton) {
+        if (txtFld_UserName.text?.isEmpty)! {
+            FTIndicator.showError(withMessage: "Please Enter Display Name")
+            return
+        }
+        else{
+            if(!Utils.isValidInput(Input: txtFld_UserName.text!)){
+                FTIndicator.showError(withMessage: "Invalid Username. Require letter, digits or underscores with minimum five characters")
+                return
+            }
+        }
+        if (txtFld_Email.text?.isEmpty)! {
+            FTIndicator.showError(withMessage: "Please Enter Email")
+            return
+        }
+        else{
+            if(!Utils.isValidEmail(txtFld_Email.text!)){
+                FTIndicator.showError(withMessage:"Please Enter Valid Email")
+                return
+            }
+        }
+        if (txtFld_Password.text?.isEmpty)! {
+            FTIndicator.showError(withMessage:"Please Enter password")
+            return
+        }
+            
+        else{
+            if((txtFld_Password.text?.characters.count)! < 6){
+                FTIndicator.showError(withMessage:"Password is not long enough")
+                return
+            }
+        }
+        if(self.txtFld_Password.text != self.txtFld_ConfirmPassword.text){
+            FTIndicator.showError(withMessage:"Password mismatch")
+            return
+        }
+        
         button.startAnimation() // 2: Then start the animation when the user tap the button
         let qualityOfServiceClass = DispatchQoS.QoSClass.background
         let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
@@ -39,6 +88,14 @@ class SignUpViwController: UIViewController {
                 })
             })
         })
+    }
+}
+//MARK:- textField Delegates
+extension SignUpViwController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        
+        return true
     }
 }
 

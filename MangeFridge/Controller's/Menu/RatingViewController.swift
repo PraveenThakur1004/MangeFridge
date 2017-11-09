@@ -1,14 +1,14 @@
 //
-//  DetailViewController.swift
-//  MangeFridge
+//  RatingViewController.swift
+//  Detail
 //
-//  Created by MAC on 05/11/17.
+//  Created by MAC on 06/11/17.
 //  Copyright © 2017 Orem. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class RatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

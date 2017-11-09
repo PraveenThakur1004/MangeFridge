@@ -6,10 +6,13 @@
 //  Copyright © 2017 Orem. All rights reserved.
 //
 
-import UIKit
-import TransitionButton
+import  UIKit
+import  TransitionButton
+import  FTIndicator
 class LogInViewController: UIViewController {
-
+    @IBOutlet weak var txtFld_Email: CustomTextField!
+    
+    @IBOutlet weak var txt_Password: CustomTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,6 +27,22 @@ class LogInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func actionLogIn(_ button: TransitionButton) {
+        
+            if (txtFld_Email.text?.isEmpty)! {
+                
+                FTIndicator.showError(withMessage: "Please Enter Email")
+                 return
+            }
+            else{
+                if(!Utils.isValidEmail(txtFld_Email.text!)){
+                    FTIndicator.showError(withMessage:"Please Enter Valid Email")
+                    return
+                }
+            }
+         if (txt_Password.text?.isEmpty)! {
+                FTIndicator.showError(withMessage:"Please Enter password")
+                return
+            }
         button.startAnimation() // 2: Then start the animation when the user tap the button
         let qualityOfServiceClass = DispatchQoS.QoSClass.background
         let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
@@ -45,5 +64,17 @@ class LogInViewController: UIViewController {
         })
     }
 
+}
+//MARK:- textField Delegates
+extension LogInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if(textField == txtFld_Email){
+            txt_Password.becomeFirstResponder();
+        }else{
+            textField.resignFirstResponder();
+        }
+        textField.borderStyle = UITextBorderStyle.none
+        return true
+    }
 }
 

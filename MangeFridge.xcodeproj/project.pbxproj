@@ -20,11 +20,8 @@
 		04078CD01FAF407C007196E0 /* WebserviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CCC1FAF407C007196E0 /* WebserviceManager.swift */; };
 		04078CD21FAF41EA007196E0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CD11FAF41EA007196E0 /* SearchViewController.swift */; };
 		04078CDE1FAF4382007196E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CDD1FAF4382007196E0 /* ProfileViewController.swift */; };
-		04078CE01FAF4418007196E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CDF1FAF4418007196E0 /* DetailViewController.swift */; };
 		04078CE51FAF464B007196E0 /* ChagePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CE41FAF464B007196E0 /* ChagePasswordViewController.swift */; };
-		04078CED1FAF4AAB007196E0 /* DrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CEC1FAF4AAB007196E0 /* DrinkTableViewController.swift */; };
-		04078CEF1FAF4ABE007196E0 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CEE1FAF4ABE007196E0 /* FoodTableViewController.swift */; };
-		04078CF11FAF4AD0007196E0 /* TopRatedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078CF01FAF4AD0007196E0 /* TopRatedTableViewController.swift */; };
+		042254831FB169480064798B /* TLTagsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 042254821FB169470064798B /* TLTagsControl.m */; };
 		044750761FAD86DC00EE8C73 /* LabelwithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750651FAD86D900EE8C73 /* LabelwithBorder.swift */; };
 		044750771FAD86DC00EE8C73 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750661FAD86D900EE8C73 /* CustomTextField.swift */; };
 		044750781FAD86DC00EE8C73 /* AppImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750671FAD86D900EE8C73 /* AppImageView.swift */; };
@@ -44,7 +41,15 @@
 		044750861FAD86DC00EE8C73 /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750751FAD86DB00EE8C73 /* AppLabel.swift */; };
 		044750891FAD872700EE8C73 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044750881FAD872700EE8C73 /* ForgetPasswordViewController.swift */; };
 		046F2F921FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 046F2F911FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF */; };
-		04872C6B1FAF66F100D7ED66 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04872C6A1FAF66F100D7ED66 /* FavouriteTableViewController.swift */; };
+		046F2F951FB03DAA0023FC99 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2F941FB03DAA0023FC99 /* MenuCell.swift */; };
+		046F2F971FB045630023FC99 /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2F961FB045630023FC99 /* DrinkViewController.swift */; };
+		046F2F991FB045770023FC99 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2F981FB045770023FC99 /* FoodViewController.swift */; };
+		046F2F9B1FB045870023FC99 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2F9A1FB045870023FC99 /* TopRatedViewController.swift */; };
+		046F2F9D1FB0459A0023FC99 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2F9C1FB0459A0023FC99 /* FavouriteViewController.swift */; };
+		046F2FA31FB049D00023FC99 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2FA21FB049D00023FC99 /* ItemTableViewCell.swift */; };
+		046F2FA51FB04EE50023FC99 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2FA41FB04EE50023FC99 /* SearchResultViewController.swift */; };
+		046F2FA71FB06D7F0023FC99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2FA61FB06D7F0023FC99 /* DetailViewController.swift */; };
+		046F2FA91FB06D890023FC99 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2FA81FB06D880023FC99 /* RatingViewController.swift */; };
 		04B083FA1FAC983B0058BF55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083F91FAC983B0058BF55 /* AppDelegate.swift */; };
 		04B083FC1FAC983B0058BF55 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B083FB1FAC983B0058BF55 /* LogInViewController.swift */; };
 		04B083FF1FAC983B0058BF55 /* Base.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B083FD1FAC983B0058BF55 /* Base.storyboard */; };
@@ -54,6 +59,9 @@
 		04B0841A1FAC983B0058BF55 /* MangeFridgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B084191FAC983B0058BF55 /* MangeFridgeUITests.swift */; };
 		04B0842E1FAC9BD20058BF55 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B0842D1FAC9BD20058BF55 /* Menu.storyboard */; };
 		04B084301FAC9C5D0058BF55 /* SignUpViwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B0842F1FAC9C5D0058BF55 /* SignUpViwController.swift */; };
+		04DF4CA61FB457710030B28F /* search_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DF4CA51FB4576F0030B28F /* search_card.png */; };
+		04DF4CA81FB474930030B28F /* SignUpViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF4CA71FB474930030B28F /* SignUpViewController+Extension.swift */; };
+		04DF4CAA1FB478580030B28F /* ProfileViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF4CA91FB478580030B28F /* ProfileViewController+Extension.swift */; };
 		300D658AF869BA915173F4D3 /* Pods_MangeFridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,11 +96,10 @@
 		04078CCC1FAF407C007196E0 /* WebserviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceManager.swift; sourceTree = "<group>"; };
 		04078CD11FAF41EA007196E0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		04078CDD1FAF4382007196E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		04078CDF1FAF4418007196E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		04078CE41FAF464B007196E0 /* ChagePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagePasswordViewController.swift; sourceTree = "<group>"; };
-		04078CEC1FAF4AAB007196E0 /* DrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewController.swift; sourceTree = "<group>"; };
-		04078CEE1FAF4ABE007196E0 /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
-		04078CF01FAF4AD0007196E0 /* TopRatedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedTableViewController.swift; sourceTree = "<group>"; };
+		042254801FB169410064798B /* MangeFridge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MangeFridge-Bridging-Header.h"; sourceTree = "<group>"; };
+		042254811FB169470064798B /* TLTagsControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLTagsControl.h; sourceTree = "<group>"; };
+		042254821FB169470064798B /* TLTagsControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLTagsControl.m; sourceTree = "<group>"; };
 		044750651FAD86D900EE8C73 /* LabelwithBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelwithBorder.swift; sourceTree = "<group>"; };
 		044750661FAD86D900EE8C73 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		044750671FAD86D900EE8C73 /* AppImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageView.swift; sourceTree = "<group>"; };
@@ -112,7 +119,15 @@
 		044750751FAD86DB00EE8C73 /* AppLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		044750881FAD872700EE8C73 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		046F2F911FB02A7E0023FC99 /* PROXIMASANSREGULAR REGULAR.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PROXIMASANSREGULAR REGULAR.TTF"; sourceTree = "<group>"; };
-		04872C6A1FAF66F100D7ED66 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
+		046F2F941FB03DAA0023FC99 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		046F2F961FB045630023FC99 /* DrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewController.swift; sourceTree = "<group>"; };
+		046F2F981FB045770023FC99 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		046F2F9A1FB045870023FC99 /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
+		046F2F9C1FB0459A0023FC99 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		046F2FA21FB049D00023FC99 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		046F2FA41FB04EE50023FC99 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		046F2FA61FB06D7F0023FC99 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		046F2FA81FB06D880023FC99 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		04B083F61FAC983B0058BF55 /* MangeFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MangeFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B083F91FAC983B0058BF55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B083FB1FAC983B0058BF55 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +143,9 @@
 		04B0841B1FAC983B0058BF55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B0842D1FAC9BD20058BF55 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		04B0842F1FAC9C5D0058BF55 /* SignUpViwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViwController.swift; sourceTree = "<group>"; };
+		04DF4CA51FB4576F0030B28F /* search_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_card.png; sourceTree = "<group>"; };
+		04DF4CA71FB474930030B28F /* SignUpViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+Extension.swift"; sourceTree = "<group>"; };
+		04DF4CA91FB478580030B28F /* ProfileViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+Extension.swift"; sourceTree = "<group>"; };
 		2E790B910A2BEF2A1E984557 /* Pods-MangeFridge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangeFridge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge.debug.xcconfig"; sourceTree = "<group>"; };
 		7130C4B661A979D380CC7322 /* Pods-MangeFridge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MangeFridge.release.xcconfig"; path = "Pods/Target Support Files/Pods-MangeFridge/Pods-MangeFridge.release.xcconfig"; sourceTree = "<group>"; };
 		9950EE1D4ABD664A9ACF4277 /* Pods_MangeFridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MangeFridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +190,8 @@
 			children = (
 				04078CBB1FAF3C79007196E0 /* MenuBase */,
 				04078CBC1FAF3C92007196E0 /* MenuContentScreen */,
+				046F2FA61FB06D7F0023FC99 /* DetailViewController.swift */,
+				046F2FA81FB06D880023FC99 /* RatingViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -180,7 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				04078CB91FAEBD59007196E0 /* CustomSegment.swift */,
+				04DF4CA51FB4576F0030B28F /* search_card.png */,
 				04078CD11FAF41EA007196E0 /* SearchViewController.swift */,
+				046F2FA41FB04EE50023FC99 /* SearchResultViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -200,7 +222,6 @@
 				04078CE31FAF45A5007196E0 /* UserData */,
 				04078CD31FAF41F7007196E0 /* Menu Food Type */,
 				04078CB81FAEBD37007196E0 /* Search */,
-				04078CDF1FAF4418007196E0 /* DetailViewController.swift */,
 			);
 			path = MenuContentScreen;
 			sourceTree = "<group>";
@@ -208,10 +229,10 @@
 		04078CD31FAF41F7007196E0 /* Menu Food Type */ = {
 			isa = PBXGroup;
 			children = (
-				04078CEC1FAF4AAB007196E0 /* DrinkTableViewController.swift */,
-				04078CEE1FAF4ABE007196E0 /* FoodTableViewController.swift */,
-				04078CF01FAF4AD0007196E0 /* TopRatedTableViewController.swift */,
-				04872C6A1FAF66F100D7ED66 /* FavouriteTableViewController.swift */,
+				046F2F961FB045630023FC99 /* DrinkViewController.swift */,
+				046F2F981FB045770023FC99 /* FoodViewController.swift */,
+				046F2F9A1FB045870023FC99 /* TopRatedViewController.swift */,
+				046F2F9C1FB0459A0023FC99 /* FavouriteViewController.swift */,
 			);
 			path = "Menu Food Type";
 			sourceTree = "<group>";
@@ -221,6 +242,7 @@
 			children = (
 				04078CDD1FAF4382007196E0 /* ProfileViewController.swift */,
 				04078CE41FAF464B007196E0 /* ChagePasswordViewController.swift */,
+				04DF4CA91FB478580030B28F /* ProfileViewController+Extension.swift */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -256,8 +278,18 @@
 				04B083FB1FAC983B0058BF55 /* LogInViewController.swift */,
 				04B0842F1FAC9C5D0058BF55 /* SignUpViwController.swift */,
 				044750881FAD872700EE8C73 /* ForgetPasswordViewController.swift */,
+				04DF4CA71FB474930030B28F /* SignUpViewController+Extension.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		046F2F931FB03D6D0023FC99 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				046F2F941FB03DAA0023FC99 /* MenuCell.swift */,
+				046F2FA21FB049D00023FC99 /* ItemTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		04B083ED1FAC983B0058BF55 = {
@@ -285,6 +317,9 @@
 		04B083F81FAC983B0058BF55 /* MangeFridge */ = {
 			isa = PBXGroup;
 			children = (
+				042254811FB169470064798B /* TLTagsControl.h */,
+				042254821FB169470064798B /* TLTagsControl.m */,
+				046F2F931FB03D6D0023FC99 /* TableViewCell */,
 				04B0842C1FAC9B2E0058BF55 /* Api's */,
 				04B084281FAC9A6E0058BF55 /* Utility */,
 				04B084271FAC9A620058BF55 /* Model */,
@@ -293,6 +328,7 @@
 				04B084291FAC9A810058BF55 /* View's */,
 				04B084001FAC983B0058BF55 /* Assets.xcassets */,
 				04B084051FAC983B0058BF55 /* Info.plist */,
+				042254801FB169410064798B /* MangeFridge-Bridging-Header.h */,
 			);
 			path = MangeFridge;
 			sourceTree = "<group>";
@@ -452,6 +488,7 @@
 				TargetAttributes = {
 					04B083F51FAC983B0058BF55 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					04B084091FAC983B0058BF55 = {
@@ -492,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B084041FAC983B0058BF55 /* LaunchScreen.storyboard in Resources */,
+				04DF4CA61FB457710030B28F /* search_card.png in Resources */,
 				04B084011FAC983B0058BF55 /* Assets.xcassets in Resources */,
 				04B083FF1FAC983B0058BF55 /* Base.storyboard in Resources */,
 				04B0842E1FAC9BD20058BF55 /* Menu.storyboard in Resources */,
@@ -559,9 +597,13 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FTIndicator/FTIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/HCSStarRatingView/HCSStarRatingView.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ParallaxHeader/ParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/SHMultipleSelect/SHMultipleSelect.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
 			);
@@ -570,9 +612,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HCSStarRatingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHMultipleSelect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
 			);
@@ -588,23 +634,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04078CE01FAF4418007196E0 /* DetailViewController.swift in Sources */,
 				044750821FAD86DC00EE8C73 /* AppFont.swift in Sources */,
+				046F2FA91FB06D890023FC99 /* RatingViewController.swift in Sources */,
 				044750811FAD86DC00EE8C73 /* ImageChangeColor.swift in Sources */,
 				04078CC61FAF4028007196E0 /* Utils.swift in Sources */,
 				04078CE51FAF464B007196E0 /* ChagePasswordViewController.swift in Sources */,
 				04078CCF1FAF407C007196E0 /* Singleton.swift in Sources */,
 				0447507D1FAD86DC00EE8C73 /* CircleImageView.swift in Sources */,
 				044750841FAD86DC00EE8C73 /* AppButton.swift in Sources */,
-				04078CED1FAF4AAB007196E0 /* DrinkTableViewController.swift in Sources */,
+				046F2F971FB045630023FC99 /* DrinkViewController.swift in Sources */,
 				044750891FAD872700EE8C73 /* ForgetPasswordViewController.swift in Sources */,
 				044750781FAD86DC00EE8C73 /* AppImageView.swift in Sources */,
 				04B084301FAC9C5D0058BF55 /* SignUpViwController.swift in Sources */,
+				046F2F9D1FB0459A0023FC99 /* FavouriteViewController.swift in Sources */,
 				04078CCE1FAF407C007196E0 /* TextFieldValidationsManager.swift in Sources */,
 				04078CC41FAF401E007196E0 /* Constants.swift in Sources */,
 				04B083FC1FAC983B0058BF55 /* LogInViewController.swift in Sources */,
 				04078CD21FAF41EA007196E0 /* SearchViewController.swift in Sources */,
 				04078CC01FAF3CBF007196E0 /* HostViewController.swift in Sources */,
+				04DF4CA81FB474930030B28F /* SignUpViewController+Extension.swift in Sources */,
 				044750761FAD86DC00EE8C73 /* LabelwithBorder.swift in Sources */,
 				04078CC21FAF4012007196E0 /* Restaurant.swift in Sources */,
 				04078CBA1FAEBD59007196E0 /* CustomSegment.swift in Sources */,
@@ -613,19 +661,24 @@
 				044750861FAD86DC00EE8C73 /* AppLabel.swift in Sources */,
 				04078CCD1FAF407C007196E0 /* AlertControllerManager.swift in Sources */,
 				04078CBF1FAF3CBF007196E0 /* NavigationMenuViewController.swift in Sources */,
-				04078CF11FAF4AD0007196E0 /* TopRatedTableViewController.swift in Sources */,
+				046F2FA71FB06D7F0023FC99 /* DetailViewController.swift in Sources */,
 				044750831FAD86DC00EE8C73 /* CustomPopUp.swift in Sources */,
+				046F2FA51FB04EE50023FC99 /* SearchResultViewController.swift in Sources */,
 				044750851FAD86DC00EE8C73 /* CustomTextFieldView.swift in Sources */,
-				04078CEF1FAF4ABE007196E0 /* FoodTableViewController.swift in Sources */,
-				04872C6B1FAF66F100D7ED66 /* FavouriteTableViewController.swift in Sources */,
+				042254831FB169480064798B /* TLTagsControl.m in Sources */,
 				044750791FAD86DC00EE8C73 /* Custom_Label.swift in Sources */,
 				04078CDE1FAF4382007196E0 /* ProfileViewController.swift in Sources */,
+				046F2F951FB03DAA0023FC99 /* MenuCell.swift in Sources */,
 				04B083FA1FAC983B0058BF55 /* AppDelegate.swift in Sources */,
 				044750771FAD86DC00EE8C73 /* CustomTextField.swift in Sources */,
 				0447507A1FAD86DC00EE8C73 /* UserDefineButton.swift in Sources */,
+				046F2F9B1FB045870023FC99 /* TopRatedViewController.swift in Sources */,
+				046F2F991FB045770023FC99 /* FoodViewController.swift in Sources */,
 				0447507C1FAD86DC00EE8C73 /* SideMenuButton.swift in Sources */,
+				04DF4CAA1FB478580030B28F /* ProfileViewController+Extension.swift in Sources */,
 				04078CD01FAF407C007196E0 /* WebserviceManager.swift in Sources */,
 				0447507E1FAD86DC00EE8C73 /* UIColorExtension.swift in Sources */,
+				046F2FA31FB049D00023FC99 /* ItemTableViewCell.swift in Sources */,
 				044750801FAD86DC00EE8C73 /* UnderLineView.swift in Sources */,
 				04078CC81FAF4066007196E0 /* Extensions.swift in Sources */,
 			);
@@ -794,13 +847,17 @@
 			baseConfigurationReference = 2E790B910A2BEF2A1E984557 /* Pods-MangeFridge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2MQHQ6H87F;
 				INFOPLIST_FILE = MangeFridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.orem.MangeFridge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.orem.carmates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MangeFridge/MangeFridge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -809,13 +866,16 @@
 			baseConfigurationReference = 7130C4B661A979D380CC7322 /* Pods-MangeFridge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2MQHQ6H87F;
 				INFOPLIST_FILE = MangeFridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.orem.MangeFridge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.orem.carmates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MangeFridge/MangeFridge-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

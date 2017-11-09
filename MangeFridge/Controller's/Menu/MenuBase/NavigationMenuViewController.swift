@@ -31,7 +31,7 @@ class NavigationMenuViewController: MenuViewController {
     //MARK:-Variable and contants
     let kCellReuseIdentifier = "MenuCell"
     let menuItems = ["Search","Drinks","Food","Favourites","Top Rated","Logout"]
-   // let menuImages = ["coupon","menu","setting","logout"]
+   let menuImages = ["search","drink","food","favorite","Top Rated","logoout"]
     fileprivate var isLogout = false
     fileprivate let wsManager = WebserviceManager()
     override var prefersStatusBarHidden: Bool {
@@ -51,8 +51,8 @@ class NavigationMenuViewController: MenuViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        lbl_Name.text = Singleton.sharedInstance.user.firstName
-        let largeImageUrl = URL(string:Singleton.sharedInstance.user.imageurlStr!)
+      //  lbl_Name.text = Singleton.sharedInstance.user.firstName
+      //  let largeImageUrl = URL(string:Singleton.sharedInstance.user.imageurlStr!)
         //self.imageView.kf.setImage(with:largeImageUrl, placeholder: UIImage(named:"placeholderImage"), options: nil, progressBlock: nil,  completionHandler: { image, error, cacheType, imageURL in
            // if  image != nil{
            //    self.imageView.image = image!.resizeImageWith(newSize: CGSize(width:90, height: 90))
@@ -84,10 +84,10 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kCellReuseIdentifier, for: indexPath)
-        cell.textLabel?.text = menuItems[indexPath.row]
-     //   cell.imageView?.image = UIImage(named:menuImages[indexPath.row])
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCellReuseIdentifier, for: indexPath) as! MenuCell
+        cell.imageViewMenuImage.image = UIImage(named:menuImages[indexPath.row])
+        cell.lbl_MenuName.text = menuItems[indexPath.row]
+       return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Logout From Application
@@ -108,7 +108,8 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
         let okAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil)
         let cancelAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
-            self.prepareLogout()
+           // self.prepareLogout()
+            self.pushToLoginScreen()
         }
         // Add the actions
         alert.addAction(okAction)
@@ -146,10 +147,15 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     //Navigte to login Screen
     func pushToLoginScreen(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Base", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "navMainBase") as! UINavigationController
         let app : AppDelegate = UIApplication.shared.delegate as! AppDelegate
         app.window?.rootViewController = initialViewController
-        app.window?.makeKeyAndVisible()
+        
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+           }, completion: { (complete) -> Void in
+            app.window?.makeKeyAndVisible()
+        })
+        
     }
 }

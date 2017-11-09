@@ -1,5 +1,5 @@
 //
-//  TopRatedTableViewController.swift
+//  DataTableViewController.swift
 //  MangeFridge
 //
 //  Created by MAC on 05/11/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopRatedTableViewController: UITableViewController {
+class FavouritesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

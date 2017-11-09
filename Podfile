@@ -10,5 +10,9 @@ target 'MangeFridge' do
         pod 'TransitionButton', '~> 0.3'
         pod 'InteractiveSideMenu'
         pod 'FTIndicator', '~> 1.2'
+        pod 'ParallaxHeader', '~> 2.0'
+        pod 'HCSStarRatingView', '~> 1.5'
+        pod 'KMPlaceholderTextView', '~> 1.3'
+        pod 'SHMultipleSelect', '~> 0.2'
 
 end

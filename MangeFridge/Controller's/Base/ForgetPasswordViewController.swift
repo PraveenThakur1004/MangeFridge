@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import FTIndicator
 class ForgetPasswordViewController: UIViewController {
 
+    @IBOutlet weak var txtFld_Email: CustomTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,5 +26,24 @@ class ForgetPasswordViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
 
     }
+    @IBAction func action_Send(_ sender: Any) {
+        if (txtFld_Email.text?.isEmpty)! {
+            FTIndicator.showError(withMessage: "Please Enter Email")
+            return
+        }
+        else{
+            if(!Utils.isValidEmail(txtFld_Email.text!)){
+                FTIndicator.showError(withMessage:"Please Enter Valid Email")
+                return
+            }
+        }
+    }
     
+}
+//MARK:- textField Delegates
+extension ForgetPasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          textField.resignFirstResponder();
+        return true
+    }
 }
