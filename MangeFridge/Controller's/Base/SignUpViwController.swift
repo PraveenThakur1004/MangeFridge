@@ -9,6 +9,7 @@
 import  UIKit
 import  TransitionButton
 import  FTIndicator
+
 class SignUpViwController: UIViewController {
     
     @IBOutlet weak var imageView_User: CircleImageView!
@@ -16,7 +17,9 @@ class SignUpViwController: UIViewController {
     @IBOutlet weak var txtFld_Password: UITextField!
     @IBOutlet weak var txtFld_Email: UITextField!
     @IBOutlet weak var txtFld_UserName: UITextField!
-    var picker:UIImagePickerController?=UIImagePickerController()
+    var wsManager = WebserviceManager()
+    var selectedImage: UIImage?
+   var picker:UIImagePickerController = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,14 +38,14 @@ class SignUpViwController: UIViewController {
     }
     @IBAction func actionSignUp(_ button: TransitionButton) {
         if (txtFld_UserName.text?.isEmpty)! {
-            FTIndicator.showError(withMessage: "Please Enter Display Name")
+            FTIndicator.showError(withMessage: "Please Enter  Name")
             return
         }
         else{
-            if(!Utils.isValidInput(Input: txtFld_UserName.text!)){
-                FTIndicator.showError(withMessage: "Invalid Username. Require letter, digits or underscores with minimum five characters")
-                return
-            }
+//            if(!Utils.isValidInput(Input: txtFld_UserName.text!)){
+//                FTIndicator.showError(withMessage: "Invalid Username. Require letter, digits or underscores with minimum five characters")
+//                return
+//            }
         }
         if (txtFld_Email.text?.isEmpty)! {
             FTIndicator.showError(withMessage: "Please Enter Email")
@@ -71,23 +74,30 @@ class SignUpViwController: UIViewController {
         }
         
         button.startAnimation() // 2: Then start the animation when the user tap the button
-        let qualityOfServiceClass = DispatchQoS.QoSClass.background
-        let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
-        backgroundQueue.async(execute: {
-            
-            sleep(3) // 3: Do your networking task or background work here.
-            
-            DispatchQueue.main.async(execute: { () -> Void in
-                // 4: Stop the animation, here you have three options for the `animationStyle` property:
-                // .expand: useful when the task has been compeletd successfully and you want to expand the button and transit to another view controller in the completion callback
-                // .shake: when you want to reflect to the user that the task did not complete successfly
-                // .normal
-                button.stopAnimation(animationStyle: .expand, completion: {
-                    self.performSegue(withIdentifier: "showMenuViews", sender: self)
+        let dict = ["name": self.txtFld_UserName.text!,
+                    "email" : self.txtFld_Email.text!,
+                    "password" : self.txtFld_Password.text!,
+                    "deviceToken" : "jfskn.gkq",
+        "deviceType" : "IOS"] as [String:String]
+       
+        self.wsManager.signUp(parmeters: dict, image: imageView_User.image!) { (status, user, message) in
+            if status{
+                button.stopAnimation(animationStyle: .expand, completion: {})
+                Singleton.sharedInstance.user = user; 
+                
+                let dictUser = user?.asDictionary()
+                UserDefaults.standard.set(dictUser, forKey: "user")
+                UserDefaults.standard.synchronize()
+                self.performSegue(withIdentifier: "showMenuViews", sender: self)
+                
+            }
+            else{
+                button.stopAnimation(animationStyle: .shake, completion: {
+                    FTIndicator.showError(withMessage: message)
                     
                 })
-            })
-        })
+            }
+        }
     }
 }
 //MARK:- textField Delegates

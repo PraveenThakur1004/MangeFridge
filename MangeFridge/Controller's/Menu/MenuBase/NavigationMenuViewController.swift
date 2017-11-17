@@ -19,6 +19,7 @@
 import UIKit
 import InteractiveSideMenu
 import FTIndicator
+import AlamofireImage
 //import  Kingfisher
 /*
  Menu controller is responsible for creating its content and showing/hiding menu using 'menuContainerViewController' property.
@@ -26,14 +27,21 @@ import FTIndicator
 class NavigationMenuViewController: MenuViewController {
     //MARK:- IBoutlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet weak var lbl_Name: UILabel!
      @IBOutlet weak var imageView: UIImageView!
+    var wsManager = WebserviceManager()
+
     //MARK:-Variable and contants
     let kCellReuseIdentifier = "MenuCell"
     let menuItems = ["Search","Drinks","Food","Favourites","Top Rated","Logout"]
    let menuImages = ["search","drink","food","favorite","Top Rated","logoout"]
+    
+    let menuItemsGuest = ["Search","Drinks","Food","Top Rated","Login"]
+    let menuImagesGuest = ["search","drink","food","Top Rated","logoout"]
+    
     fileprivate var isLogout = false
-    fileprivate let wsManager = WebserviceManager()
+//    fileprivate let wsManager = WebserviceManager()
     override var prefersStatusBarHidden: Bool {
         return false
     }
@@ -48,16 +56,30 @@ class NavigationMenuViewController: MenuViewController {
             })}}
         
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+        
+       
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      //  lbl_Name.text = Singleton.sharedInstance.user.firstName
-      //  let largeImageUrl = URL(string:Singleton.sharedInstance.user.imageurlStr!)
-        //self.imageView.kf.setImage(with:largeImageUrl, placeholder: UIImage(named:"placeholderImage"), options: nil, progressBlock: nil,  completionHandler: { image, error, cacheType, imageURL in
-           // if  image != nil{
-           //    self.imageView.image = image!.resizeImageWith(newSize: CGSize(width:90, height: 90))
-           // }
-        //})
+      
+        if Singleton.sharedInstance.guestUser
+        {
+            btnProfile.isHidden = true
+            lbl_Name.text = "Guest"
+        }
+        else{
+            btnProfile.isHidden = false
+            lbl_Name.text = Singleton.sharedInstance.user.name
+            if let image_Str = Singleton.sharedInstance.user.userImageUrlString{
+                let url = NSURL(string: image_Str)
+                imageView.af_setImage(
+                    withURL: url! as URL,
+                    placeholderImage: nil,
+                    filter: CircleFilter(),
+                    imageTransition: .flipFromBottom(0.5)
+                )}
+        }
         
     }
     //MARK- IBAction 
@@ -80,17 +102,30 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if Singleton.sharedInstance.guestUser
+        {
+            return menuItemsGuest.count
+        }
         return menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kCellReuseIdentifier, for: indexPath) as! MenuCell
-        cell.imageViewMenuImage.image = UIImage(named:menuImages[indexPath.row])
-        cell.lbl_MenuName.text = menuItems[indexPath.row]
+        if Singleton.sharedInstance.guestUser{
+            cell.imageViewMenuImage.image = UIImage(named:menuImagesGuest[indexPath.row])
+            cell.lbl_MenuName.text = menuItemsGuest[indexPath.row]
+        }
+        else{
+            cell.imageViewMenuImage.image = UIImage(named:menuImages[indexPath.row])
+            cell.lbl_MenuName.text = menuItems[indexPath.row]
+        }
+      
        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Logout From Application
+        if Singleton.sharedInstance.guestUser == false{
+
         if    (indexPath.row == 5){
             self.logout()
         }
@@ -101,15 +136,50 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
             menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
             menuContainerViewController.hideSideMenu()
         }
+        }
+        else{
+            
+            if    (indexPath.row == 4){
+                self.Login()
+            }
+            else{
+                guard let menuContainerViewController = self.menuContainerViewController else {
+                    return
+                }
+                menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
+                menuContainerViewController.hideSideMenu()
+            }
+        }
     }
     //MARK:- Logout
+    func Login()  {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        guard let rootViewController = window.rootViewController else {
+            return
+        }
+        Singleton.sharedInstance.guestUser = false
+        let storyboard = UIStoryboard(name: "Base", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "navMainBase")
+        vc.view.frame = rootViewController.view.frame
+        vc.view.layoutIfNeeded()
+        
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = vc
+        }, completion: { completed in
+            // maybe do something here
+        })
+
+    }
+    
     func logout(){
         let alert = UIAlertController(title: "Are You Sure", message:"Want to logout?", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil)
         let cancelAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
-           // self.prepareLogout()
-            self.pushToLoginScreen()
+            self.prepareLogout()
+            
         }
         // Add the actions
         alert.addAction(okAction)
@@ -128,18 +198,13 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
                     Singleton.sharedInstance.user = nil
                     //Delete all userDefaults
                     let domain = Bundle.main.bundleIdentifier!
-                    UserDefaults.standard.removePersistentDomain(forName: domain)
+              UserDefaults.standard.removePersistentDomain(forName: domain)
                     UserDefaults.standard.synchronize()
                     //LoginFlow
                     self.pushToLoginScreen()
                 } else {
                     FTIndicator.dismissProgress()
-                    let alert = UIAlertController(title: "Unknown Error!", message:"Unable to logout.", preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-                    // Add the actions
-                    alert.addAction(okAction)
-                    // Present the controller
-                    self.present(alert, animated: true, completion: nil)
+                  FTIndicator.showError(withMessage: message)
                     
                 }
             });
@@ -147,15 +212,22 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     //Navigte to login Screen
     func pushToLoginScreen(){
-        let storyboard = UIStoryboard(name: "Base", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "navMainBase") as! UINavigationController
-        let app : AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        app.window?.rootViewController = initialViewController
-        
-        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-           }, completion: { (complete) -> Void in
-            app.window?.makeKeyAndVisible()
-        })
-        
-    }
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        guard let rootViewController = window.rootViewController else {
+            return
+        }
+
+                    let storyboard = UIStoryboard(name: "Base", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "navMainBase")
+                    vc.view.frame = rootViewController.view.frame
+                    vc.view.layoutIfNeeded()
+                    
+                    UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                        window.rootViewController = vc
+                    }, completion: nil)
+
+                }
+    
 }

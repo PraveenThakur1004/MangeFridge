@@ -8,9 +8,12 @@
 
 import UIKit
 import FTIndicator
+import TransitionButton
 class ForgetPasswordViewController: UIViewController {
 
     @IBOutlet weak var txtFld_Email: CustomTextField!
+    var wsManager = WebserviceManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,17 +29,30 @@ class ForgetPasswordViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
 
     }
-    @IBAction func action_Send(_ sender: Any) {
+    @IBAction func action_Send(_ button: TransitionButton) {
         if (txtFld_Email.text?.isEmpty)! {
             FTIndicator.showError(withMessage: "Please Enter Email")
             return
         }
-        else{
-            if(!Utils.isValidEmail(txtFld_Email.text!)){
+        if(!Utils.isValidEmail(txtFld_Email.text!)){
                 FTIndicator.showError(withMessage:"Please Enter Valid Email")
-                return
+                  return
             }
-        }
+            let dict = ["email":txtFld_Email.text!]
+            button.startAnimation()
+            wsManager.forgotPassword(parameter: dict as NSDictionary, completionHandler: { (sucess, message) in
+                if sucess{
+                  button.stopAnimation()
+                    FTIndicator.showSuccess(withMessage: message)
+                self.dismiss(animated: true, completion: nil)
+                }
+                else{
+                 button.stopAnimation(animationStyle: .shake,  completion: {
+                        FTIndicator.showError(withMessage: message)
+                    })
+                }
+            })
+            
     }
     
 }

@@ -13,4 +13,7 @@ struct Constants {
         static let longName : String = "Username is too long"
         static let longPassword : String = "Password is too long"
     }
+    struct successMessages {
+      //  static let 
+    }
 }

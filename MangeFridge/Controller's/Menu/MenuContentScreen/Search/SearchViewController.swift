@@ -27,29 +27,41 @@ class SearchViewController: CustomTransitionViewController,SideMenuItemContent {
     @IBOutlet weak var txt_FieldOther: UITextField!
     @IBOutlet weak var segmentSearch: CustomSegment!
    
-    let multiSelectPoper  = SHMultipleSelect()
+    var ingredentSelectPoper = SHMultipleSelect()
+    var filetrerSelectPoper  = SHMultipleSelect()
     var selectedString:String?
+    var isFilter = false
     var filterArray = ["Drink","Food","Top Rated","Favourite"]
     var selectionArray = ["Ingredent1","Ingredent2","Ingredent3","Ingredent4","Ingredent5","Ingredent6"]
     @IBOutlet weak var view_Filter: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nsLayout_heightOfView.constant = 0
+        self.nslayOut_ButtonHeight.constant = 0
+        self.nslayout_lblFilterHeight.constant = 0
+        self.view.layoutIfNeeded()
        decorateSegmentedControl()
         // Do any additional setup after loading the view.
     }
     @IBAction func segmentChanged(_ sender: CustomSegment) {
         print(sender.selectedIndex)
-       // print(sender.selectedSegmentIndex)
+     
         if sender.selectedIndex == 0{
-            nsLayout_heightOfView.constant = 0
-            nslayOut_ButtonHeight.constant = 0
-            nslayout_lblFilterHeight.constant = 0
-            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.30, animations: {
+                self.nsLayout_heightOfView.constant = 0
+                self.nslayOut_ButtonHeight.constant = 0
+                self.nslayout_lblFilterHeight.constant = 0
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+           
             } else {
-            nslayOut_ButtonHeight.constant = 44
-            nslayout_lblFilterHeight.constant = 17
-            nsLayout_heightOfView.constant = 55
-            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.30, animations: {
+                self.nslayOut_ButtonHeight.constant = 44
+                self.nslayout_lblFilterHeight.constant = 17
+                self.nsLayout_heightOfView.constant = 55
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+           
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -62,16 +74,20 @@ class SearchViewController: CustomTransitionViewController,SideMenuItemContent {
     }
     
     @IBAction func action_DropDown(_ sender: UIButton) {
-        multiSelectPoper.delegate = self
-        if sender.tag == 101{
-            multiSelectPoper.rowsCount = filterArray.count
+       if sender.tag == 101{
+            isFilter = true
+            filetrerSelectPoper.delegate = self
+            filetrerSelectPoper.rowsCount = filterArray.count
+            filetrerSelectPoper.show()
         }else{
-            multiSelectPoper.rowsCount = selectionArray.count
+            isFilter = false
+          ingredentSelectPoper.delegate = self
+          ingredentSelectPoper.rowsCount = selectionArray.count
+          ingredentSelectPoper.show()
         }
-        multiSelectPoper.show()
+       
     }
-    
-//Navigation back button action
+    //Navigation back button action
     @IBAction func openMenu(_ sender: UIButton) {
       showSideMenu()
     }
@@ -82,7 +98,6 @@ class SearchViewController: CustomTransitionViewController,SideMenuItemContent {
     }
     
 }
-
 extension SearchViewController : SHMultipleSelectDelegate{
     
     func multipleSelectView(_ multipleSelectView: SHMultipleSelect!, clickedBtnAt clickedBtnIndex: Int, withSelectedIndexPaths selectedIndexPaths: [Any]!) {
@@ -94,27 +109,47 @@ extension SearchViewController : SHMultipleSelectDelegate{
                 let itemArray = NSMutableArray()
                 for indexPath: IndexPath in indexer {
                     print("\(selectionArray[indexPath.row])")
-                    itemArray.insert(selectionArray[indexPath.row], at: 0)
-                   
-                   
-                }
+                    if isFilter == true{
+                         itemArray.insert(filterArray[indexPath.row], at: 0)
+                    }
+                    else{
+                         itemArray.insert(selectionArray[indexPath.row], at: 0)
+                    }
+                  }
                 selectedString =  (itemArray.map{String(describing: $0)}).joined(separator: ",")
-                lbl_Ingredents.text = selectedString
+                if isFilter == true{
+                    lbl_Filter.text = selectedString
+                }else{
+                    lbl_Ingredents.text = selectedString
+                    
+                }
             }
         }
 
     }
-    
     func multipleSelectView(_ multipleSelectView: SHMultipleSelect!, titleForRowAt indexPath: IndexPath!) -> String! {
+        if isFilter == true{
+            return self.filterArray[indexPath.row]
+        }else{
         return self.selectionArray[indexPath.row]
     }
-    
+}
     func multipleSelectView(_ multipleSelectView: SHMultipleSelect!, setSelectedForRowAt indexPath: IndexPath!) -> Bool {
         var canSelect = false
+        if isFilter == true{
+            if indexPath.row == filterArray.count {
+                canSelect = true
+            }
+            return canSelect
+            
+        }
+        else{
         if indexPath.row == selectionArray.count {
             canSelect = true
         }
         return canSelect
+        }
+        
     }
 }
 //MARK:- textField Delegates

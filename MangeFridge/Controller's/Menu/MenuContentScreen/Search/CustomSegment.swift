@@ -95,11 +95,8 @@ import UIKit
         for label in labels {
             label.removeFromSuperview()
         }
-        
         labels.removeAll(keepingCapacity: true)
-        
         for index in 1...items.count {
-            
             let label = UILabel(frame:CGRect(x: 0, y: 5, width: 70, height: 40))
             label.text = items[index - 1]
             label.backgroundColor = UIColor.clear
@@ -110,7 +107,6 @@ import UIKit
             self.addSubview(label)
             labels.append(label)
         }
-        
         addIndividualItemConstraints(items: labels, mainView: self, padding: 0)
     }
     

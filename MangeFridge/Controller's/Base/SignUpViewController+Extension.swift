@@ -27,8 +27,9 @@ extension SignUpViwController{
             
         }
         // Add the actions
-        picker?.allowsEditing = true
-        picker?.delegate = self
+        
+        picker.allowsEditing = true
+        picker.delegate = self
         alert.addAction(cameraAction)
         alert.addAction(GalleryAction)
         alert.addAction(cancelAction)
@@ -43,8 +44,8 @@ extension SignUpViwController{
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
         {
-            picker!.sourceType = UIImagePickerControllerSourceType.camera
-            self .present(picker!, animated: true, completion: nil)
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            self .present(picker, animated: true, completion: nil)
         }
         else
         {
@@ -53,10 +54,10 @@ extension SignUpViwController{
     }
     func openGallery()
     {
-        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         if UIDevice.current.userInterfaceIdiom == .phone
         {
-            self.present(picker!, animated: true, completion: nil)
+            self.present(picker, animated: true, completion: nil)
         }
         
     }
@@ -67,19 +68,17 @@ extension SignUpViwController{
 }
 
 extension SignUpViwController : UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate{
- func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-          imageView_User.image =   chosenImage.resizeImageWith(newSize: CGSize(width: 88, height: 88)) //4
-           
-            
-        } else{
-        }
-        dismiss(animated:true, completion: nil) //5
+            imageView_User.image =   chosenImage.resizeImageWith(newSize: CGSize(width:self.view.frame.size.width, height: 249))
     }
+        dismiss(animated:true, completion: nil)
+    }
+    
+    
     //What to do if the image picker cancels.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
-

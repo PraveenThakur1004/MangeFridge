@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -152,13 +153,32 @@
                                     <constraint firstAttribute="width" secondItem="1Tf-Mp-pFA" secondAttribute="height" multiplier="1:1" id="GR8-zu-sre"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3J-ob-ojw" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="255" y="32" width="104" height="30"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Login As Guest">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="GuestLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CEn-TV-aFq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.52549019607843139" green="0.77647058823529413" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V3J-ob-ojw" secondAttribute="trailing" constant="16" id="0to-LM-alY"/>
                             <constraint firstItem="1Tf-Mp-pFA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="2VP-Nd-BUc"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="height" secondItem="woh-zy-ne9" secondAttribute="height" id="AoW-Ys-C78"/>
                             <constraint firstItem="EZQ-8S-68o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BQl-NA-0ao"/>
                             <constraint firstItem="woh-zy-ne9" firstAttribute="top" secondItem="EZQ-8S-68o" secondAttribute="bottom" constant="14" id="Do7-Gv-ixI"/>
+                            <constraint firstItem="V3J-ob-ojw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="FFW-hm-srI"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="top" secondItem="Wc5-7d-akg" secondAttribute="bottom" constant="8" id="Fnr-zW-qUC"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="width" secondItem="woh-zy-ne9" secondAttribute="width" id="HAa-BB-yCV"/>
                             <constraint firstItem="Ynb-8k-8Y3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="3" id="LqK-jT-XY1"/>

@@ -25,9 +25,8 @@ class DetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.detailTableView.estimatedRowHeight = 100
-        
+        self.detailTableView.estimatedRowHeight = UITableViewAutomaticDimension
+        self.detailTableView.rowHeight = UITableViewAutomaticDimension
         self.ratingOuterView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         let frame : CGRect = CGRect(x:0,y:0,width : self.view.frame.size.width,height : self.view.frame.size.height)

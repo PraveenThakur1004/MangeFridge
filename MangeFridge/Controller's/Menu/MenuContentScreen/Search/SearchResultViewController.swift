@@ -28,12 +28,11 @@ class SearchResultViewController: UIViewController {
         frame = CGRect(x:0,y:0,width:self.view.frame.size.width,height:54)
         self.tagView.frame = CGRect(x:5,y:5,width:self.frame.size.width - 10,height:44)
           self.tagView.tagsDeleteButtonColor = UIColor.red
-        self.tagView.tagPlaceholder = ""
+        //self.tagView.tagPlaceholder = ""
         self.tagView.backgroundColor = UIColor.lightText
         self.tagView.tagsTextColor = UIColor(red:145/255.0,green:201/255.0,blue:111/255.0,alpha:1.0)
         self.tagView.mode = .edit
-        
-            self.tagBackGroundView.addSubview(self.tagView)
+        self.tagBackGroundView.addSubview(self.tagView)
     }
     
     

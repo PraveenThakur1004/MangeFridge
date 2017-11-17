@@ -67,19 +67,18 @@ extension ProfileViewController{
 }
 
 extension ProfileViewController : UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate{
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            imageView_User.image =   chosenImage.resizeImageWith(newSize: CGSize(width: 88, height: 88)) //4
-            
-            
-        } else{
+            isEdit = true
+            updatedImage = chosenImage
+            imageView_User.image =   chosenImage.resizeImageWith(newSize: CGSize(width:self.view.frame.size.width, height: 249))
         }
-        dismiss(animated:true, completion: nil) //5
+        dismiss(animated:true, completion: nil)
     }
+    
+    
     //What to do if the image picker cancels.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
-
