@@ -9,6 +9,7 @@
 import Foundation
 //MARK- Section Data Structure
 public struct Item {
+    var id:String
     var name: String
     var duration: String
     var category: String
@@ -16,9 +17,10 @@ public struct Item {
     var description:String
     var favoritestatus:String
     var ingredients:String
-    var recipe:String
+    var review:String
     var ratings:String
-    public init(name: String, duration: String, category:String, image:String,description:String,favoritestatus:String,ingredients:String,recipe:String,ratings:String) {
+    public init(id:String,name: String, duration: String, category:String, image:String,description:String,favoritestatus:String,ingredients:String,review:String,ratings:String) {
+        self.id = id
         self.name = name
         self.duration = duration
         self.category = category
@@ -26,7 +28,7 @@ public struct Item {
         self.description = description
         self.favoritestatus = favoritestatus
         self.ingredients = ingredients
-        self.recipe = recipe
+        self.review = review
         self.ratings = ratings
     }
 }

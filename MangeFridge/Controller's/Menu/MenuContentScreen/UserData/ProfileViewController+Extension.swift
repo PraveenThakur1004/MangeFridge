@@ -8,6 +8,7 @@
 
 import Foundation
 extension ProfileViewController{
+    //Show action sheet upload image options
     func showActionSheet(){
         let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
@@ -41,6 +42,7 @@ extension ProfileViewController{
     }
     func openCamera()
     {
+
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
         {
             picker!.sourceType = UIImagePickerControllerSourceType.camera
@@ -65,7 +67,7 @@ extension ProfileViewController{
         return imageData as Data
     }
 }
-
+//MARK:- Delegate UIImagePicker
 extension ProfileViewController : UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
@@ -75,10 +77,9 @@ extension ProfileViewController : UINavigationControllerDelegate,UIImagePickerCo
         }
         dismiss(animated:true, completion: nil)
     }
-    
-    
     //What to do if the image picker cancels.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
+

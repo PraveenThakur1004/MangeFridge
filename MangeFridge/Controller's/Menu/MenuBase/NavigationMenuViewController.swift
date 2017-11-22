@@ -34,8 +34,8 @@ class NavigationMenuViewController: MenuViewController {
 
     //MARK:-Variable and contants
     let kCellReuseIdentifier = "MenuCell"
-    let menuItems = ["Search","Drinks","Food","Favourites","Top Rated","Logout"]
-   let menuImages = ["search","drink","food","favorite","Top Rated","logoout"]
+    let menuItems = ["Search","Drinks","Food","Top Rated","Favourites","Logout"]
+   let menuImages = ["search","drink","food","Top Rated","favorite","logoout"]
     
     let menuItemsGuest = ["Search","Drinks","Food","Top Rated","Login"]
     let menuImagesGuest = ["search","drink","food","Top Rated","logoout"]
@@ -54,7 +54,7 @@ class NavigationMenuViewController: MenuViewController {
                 if sucess{
                 }
             })}}
-        
+       
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
         
        
@@ -142,7 +142,7 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
             if    (indexPath.row == 4){
                 self.Login()
             }
-            else{
+        else{
                 guard let menuContainerViewController = self.menuContainerViewController else {
                     return
                 }

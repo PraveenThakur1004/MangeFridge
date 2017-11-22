@@ -96,7 +96,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="actionLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dpp-wo-6TM"/>
+                                    <action selector="actionLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U77-Ul-Zuc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ynb-8k-8Y3" customClass="CustomViewWithLessAlpha" customModule="MangeFridge" customModuleProvider="target">
@@ -153,43 +153,53 @@
                                     <constraint firstAttribute="width" secondItem="1Tf-Mp-pFA" secondAttribute="height" multiplier="1:1" id="GR8-zu-sre"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3J-ob-ojw" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="255" y="32" width="104" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Login As Guest">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
-                                                <integer key="NSUnderline" value="1"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-Bp-EmS" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="62" y="540" width="250" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uRS-70-Y8U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Login As Guest">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="GuestLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CEn-TV-aFq"/>
+                                    <action selector="GuestLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VQC-zr-2TI"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.52549019607843139" green="0.77647058823529413" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V3J-ob-ojw" secondAttribute="trailing" constant="16" id="0to-LM-alY"/>
                             <constraint firstItem="1Tf-Mp-pFA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="2VP-Nd-BUc"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="height" secondItem="woh-zy-ne9" secondAttribute="height" id="AoW-Ys-C78"/>
+                            <constraint firstItem="13Q-Bp-EmS" firstAttribute="width" secondItem="0Ab-vX-iRS" secondAttribute="width" id="BAe-eR-U5I"/>
                             <constraint firstItem="EZQ-8S-68o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BQl-NA-0ao"/>
                             <constraint firstItem="woh-zy-ne9" firstAttribute="top" secondItem="EZQ-8S-68o" secondAttribute="bottom" constant="14" id="Do7-Gv-ixI"/>
-                            <constraint firstItem="V3J-ob-ojw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="FFW-hm-srI"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="top" secondItem="Wc5-7d-akg" secondAttribute="bottom" constant="8" id="Fnr-zW-qUC"/>
+                            <constraint firstItem="13Q-Bp-EmS" firstAttribute="trailing" secondItem="0Ab-vX-iRS" secondAttribute="trailing" id="G1W-jI-FhM"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="width" secondItem="woh-zy-ne9" secondAttribute="width" id="HAa-BB-yCV"/>
+                            <constraint firstItem="13Q-Bp-EmS" firstAttribute="top" secondItem="0Ab-vX-iRS" secondAttribute="bottom" constant="8" id="KaY-Kt-fat"/>
                             <constraint firstItem="Ynb-8k-8Y3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="3" id="LqK-jT-XY1"/>
+                            <constraint firstItem="13Q-Bp-EmS" firstAttribute="leading" secondItem="0Ab-vX-iRS" secondAttribute="leading" id="Qhl-6j-2K1"/>
                             <constraint firstItem="woh-zy-ne9" firstAttribute="centerX" secondItem="EZQ-8S-68o" secondAttribute="centerX" id="Rlu-3D-tjH"/>
                             <constraint firstItem="EZQ-8S-68o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="SDI-el-rHI"/>
                             <constraint firstItem="Wc5-7d-akg" firstAttribute="width" secondItem="woh-zy-ne9" secondAttribute="width" id="T9Z-RZ-46n"/>
+                            <constraint firstItem="13Q-Bp-EmS" firstAttribute="height" secondItem="0Ab-vX-iRS" secondAttribute="height" id="TaF-3k-p2h"/>
                             <constraint firstItem="Wc5-7d-akg" firstAttribute="top" secondItem="woh-zy-ne9" secondAttribute="bottom" constant="13" id="VJn-Fu-JAU"/>
+                            <constraint firstItem="13Q-Bp-EmS" firstAttribute="centerX" secondItem="0Ab-vX-iRS" secondAttribute="centerX" id="Vx2-f9-pdc"/>
                             <constraint firstItem="0Ab-vX-iRS" firstAttribute="centerX" secondItem="woh-zy-ne9" secondAttribute="centerX" id="WfK-Hl-2ac"/>
                             <constraint firstItem="Ynb-8k-8Y3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XY6-IU-cPw"/>
                             <constraint firstItem="Ynb-8k-8Y3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0Ab-vX-iRS" secondAttribute="bottom" constant="8" id="Ya6-XG-Ngu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EZQ-8S-68o" secondAttribute="trailing" constant="8" id="b5E-pC-PPb"/>
+                            <constraint firstItem="Ynb-8k-8Y3" firstAttribute="top" secondItem="13Q-Bp-EmS" secondAttribute="bottom" constant="20" id="dfe-T3-sZg"/>
                             <constraint firstItem="woh-zy-ne9" firstAttribute="width" secondItem="EZQ-8S-68o" secondAttribute="width" id="e0C-Ix-fGG"/>
                             <constraint firstItem="EZQ-8S-68o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gtg-L8-z78"/>
                             <constraint firstItem="Wc5-7d-akg" firstAttribute="centerX" secondItem="woh-zy-ne9" secondAttribute="centerX" id="h5y-19-GiF"/>
@@ -210,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="107"/>
+            <point key="canvasLocation" x="112.8" y="106.59670164917542"/>
         </scene>
         <!--Menu-->
         <scene sceneID="4gY-vO-cL5">
@@ -659,6 +669,6 @@
         <image name="userplaceholder" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bYu-2f-Aba"/>
+        <segue reference="Gqc-kS-cst"/>
     </inferredMetricsTieBreakers>
 </document>

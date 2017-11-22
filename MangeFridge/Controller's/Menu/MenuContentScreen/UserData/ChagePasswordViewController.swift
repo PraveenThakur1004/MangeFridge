@@ -8,19 +8,16 @@
 
 import UIKit
 import FTIndicator
-
 class ChagePasswordViewController: UIViewController {
-    var wsManager = WebserviceManager()
-
+    //MARK:- IBOutlet and IBAction
     @IBOutlet weak var txtFld_ConfirmPassword: CustomTextField!
     @IBOutlet weak var txtFld_NewPassword: CustomTextField!
     @IBOutlet weak var txtFld_CurrentPassword: CustomTextField!
+    var wsManager = WebserviceManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-   //MARK- Action
+  }
+    //MARK:- Action
     @IBAction func action_Done(_ sender: Any) {
         if (txtFld_CurrentPassword.text?.isEmpty)! {
             FTIndicator.showError(withMessage:"Please Current Enter Password")
@@ -50,7 +47,7 @@ class ChagePasswordViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
-
+    
 }
 //MARK:- textField Delegates
 extension ChagePasswordViewController: UITextFieldDelegate {
@@ -59,3 +56,4 @@ extension ChagePasswordViewController: UITextFieldDelegate {
         return true
     }
 }
+

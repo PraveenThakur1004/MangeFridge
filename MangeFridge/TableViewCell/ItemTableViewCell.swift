@@ -15,7 +15,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var  lbl_Category: UILabel!
     @IBOutlet weak var  lbl_Discription: UILabel!
     @IBOutlet weak var  lbl_ItemName: UILabel!
-  
     @IBOutlet weak var imageView_Fav: UIImageView!
     @IBOutlet weak var view_Rate: HCSStarRatingView!
     ////MARK:- IBInspectable

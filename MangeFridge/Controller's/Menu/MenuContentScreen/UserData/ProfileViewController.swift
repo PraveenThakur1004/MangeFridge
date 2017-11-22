@@ -11,9 +11,8 @@ import  InteractiveSideMenu
 import FTIndicator
 import AlamofireImage
 class ProfileViewController: UIViewController,SideMenuItemContent {
-    //MARK- IBoutlet and Variables
+    //MARK:- IBoutlet and Variables
     var wsManager = WebserviceManager()
-
     @IBOutlet weak var btn_Edit: UIButton!
     @IBOutlet weak var txtFld_FullName: UITextField!
     @IBOutlet weak var txtFld_Email: UITextField!
@@ -22,31 +21,26 @@ class ProfileViewController: UIViewController,SideMenuItemContent {
     var updatedImage: UIImage?
     var isEdit = false
     var picker:UIImagePickerController?=UIImagePickerController()
-//    var wsManager = WebserviceManager()
-
-    //MARK- ViewLifeCycle
+    //MARK:- ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.unEditAbleView()
         txtFld_Email.setLeftPaddingPoints(10)
         txtFld_FullName.setLeftPaddingPoints(10)
-        // Do any additional setup after loading the view.
-    }
-    
-   //setUpSimpleView
+      }
+    //setUpSimpleView
     func unEditAbleView(){
         //Intraction of views
         btn_Edit.tag = 101
         txtFld_Email.text = Singleton.sharedInstance.user.email
         txtFld_FullName.text = Singleton.sharedInstance.user.name
-        
         if let image_Str = Singleton.sharedInstance.user.userImageUrlString{
-         let url = NSURL(string: image_Str)
-         imageView_User.af_setImage(
-            withURL: url! as URL,
-            placeholderImage: nil,
-            filter: CircleFilter(),
-            imageTransition: .flipFromBottom(0.5)
+            let url = NSURL(string: image_Str)
+            imageView_User.af_setImage(
+                withURL: url! as URL,
+                placeholderImage: nil,
+                filter: CircleFilter(),
+                imageTransition: .flipFromBottom(0.5)
             )}
         btn_Edit.setImage(UIImage(named:"edit"), for: .normal)
         txtFld_Email.layer.borderWidth = 0.0
@@ -60,20 +54,15 @@ class ProfileViewController: UIViewController,SideMenuItemContent {
         //Intraction of views
         btn_Edit.tag = 0
         btn_Edit.setImage(UIImage(named:"save"), for: .normal)
-       let myColor = UIColor.black
+        let myColor = UIColor.black
         txtFld_FullName.layer.borderColor = myColor.cgColor
-//        txtFld_Email.layer.borderColor = myColor.cgColor
-//        txtFld_Email.layer.borderWidth = 1.0
         txtFld_FullName.layer.borderWidth = 1.0
         btn_ShowImagePicker.isHidden = false
         txtFld_FullName.isEnabled = true
-//        txtFld_Email.isEnabled = true
-   }
+       }
     func UpdateProfile()  {
-
         let dict = ["id": Singleton.sharedInstance.user.id , "name" : txtFld_FullName.text!]
         FTIndicator.showProgress(withMessage: "Updating...")
-       
         self.wsManager.updateProfile(parmeters: dict as! [String : String], image: updatedImage!) { (sucess, user, message) in
             if sucess{
                 FTIndicator.dismissProgress()
@@ -93,41 +82,40 @@ class ProfileViewController: UIViewController,SideMenuItemContent {
         }
         
     }
-//MARK- IBAction
+    //MARK:- IBAction
     @IBAction func action_Edit(sender: UIButton){
         if sender.image(for: .normal) == UIImage(named:"edit"){
             self.editAbleView()
-
-        }
-       else{
+            }
+        else{
             if isEdit == true{
-            let alert = UIAlertController(title: "Are You Sure", message:"Want to update changes?", preferredStyle: UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default){
-                UIAlertAction in
+                let alert = UIAlertController(title: "Are You Sure", message:"Want to update changes?", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default){
+                    UIAlertAction in
+                    self.unEditAbleView()
+                    self.isEdit = false
+                }
+                let cancelAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    self.UpdateProfile()
+                }
+                // Add the actions
+                alert.addAction(okAction)
+                alert.addAction(cancelAction)
+                // Present the controller
+                self.present(alert, animated: true, completion: nil) }
+            else{
                 self.unEditAbleView()
                 self.isEdit = false
-                }
-            let cancelAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
-                UIAlertAction in
-                self.UpdateProfile()
             }
-            // Add the actions
-            alert.addAction(okAction)
-            alert.addAction(cancelAction)
-            // Present the controller
-            self.present(alert, animated: true, completion: nil) }
-        else{
-            self.unEditAbleView()
-            self.isEdit = false
         }
     }
-}
     
     @IBAction func action_ShowImagePicker(_ sender: Any) {
         self.showActionSheet()
     }
     @IBAction func openMenu(_ sender: UIButton) {              showSideMenu()    }
-
+    
 }
 //MARK:- textField Delegates
 extension ProfileViewController: UITextFieldDelegate {
@@ -135,9 +123,9 @@ extension ProfileViewController: UITextFieldDelegate {
         isEdit = true
         return true
     }
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true
     }
 }
+

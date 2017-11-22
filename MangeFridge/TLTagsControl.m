@@ -137,7 +137,7 @@
         if (self.frame.size.width - tagInputField_.frame.origin.x > 100) {
             frame.size.width = self.frame.size.width - frame.origin.x - 12;
         } else {
-            frame.size.width = 100;
+            frame.size.width = 0;
         }
         tagInputField_.frame = frame;
     } else {

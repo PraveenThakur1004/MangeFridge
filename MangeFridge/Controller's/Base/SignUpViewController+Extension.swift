@@ -7,7 +7,9 @@
 //
 
 import Foundation
+//Extension SignUp
 extension SignUpViwController{
+    //Show action Sheet
     func showActionSheet(){
         let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.default)
@@ -27,7 +29,6 @@ extension SignUpViwController{
             
         }
         // Add the actions
-        
         picker.allowsEditing = true
         picker.delegate = self
         alert.addAction(cameraAction)
@@ -66,19 +67,17 @@ extension SignUpViwController{
         return imageData as Data
     }
 }
-
+//MARK- Delegate ImagePicker
 extension SignUpViwController : UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate{
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView_User.image =   chosenImage.resizeImageWith(newSize: CGSize(width:self.view.frame.size.width, height: 249))
-    }
+        }
         dismiss(animated:true, completion: nil)
     }
-    
-    
     //What to do if the image picker cancels.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 }
+

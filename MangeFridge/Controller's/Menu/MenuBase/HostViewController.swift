@@ -43,7 +43,7 @@ class HostViewController: MenuContainerViewController {
     }
     private func contentControllers() -> [UIViewController] {
         //ViewController StoryBoarId array
-        let controllersIdentifiers = ["ID_SearchViewController","ID_DrinkViewController","ID_FoodViewController","ID_FavouriteViewController","ID_TopRatedViewController","ID_ProfileViewController"]
+        let controllersIdentifiers = ["ID_SearchViewController","ID_DrinkViewController","ID_FoodViewController","ID_TopRatedViewController","ID_FavouriteViewController","ID_ProfileViewController"]
         var contentList = [UIViewController]()
         
         /*
