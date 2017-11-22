@@ -7,8 +7,7 @@ import Foundation
 import Alamofire
 import FTIndicator
 //MARK:-BaseUrls
-//http://nimbyisttechnologies.com/himanshu/fridge/api/apis/
-let baseUrl = "http://nimbyisttechnologies.com/himanshu/fridge/api/apis/"
+let baseUrl = "http://fridgebit.com/admin/api/apis/"
 class WebserviceManager: NSObject{
     //MARK:- Constant BaseUrl+taskUrl
     //New
@@ -22,11 +21,19 @@ class WebserviceManager: NSObject{
     let logoutURL = baseUrl + "logout"
     let updateProfileURL = baseUrl + "updateProfile"
     //SlideMenu
-    let searchURL = baseUrl + ""
-    let getFavouriteURL = baseUrl + ""
-    let getTopRatedURL = baseUrl + ""
-    let getDrinksURL = baseUrl + ""
-    let getFoodURL = baseUrl + ""
+   // http://nimbyisttechnologies.com/himanshu/fridge/api/apis/getIngr
+    let getIngredientsURL = baseUrl + "getIngr"
+    let getFiltersURL = baseUrl + "getFilter"
+    let searchURL = baseUrl + "searchrecp"
+    let getUserFavouriteRecipeURL = baseUrl + "favList"
+    let getTopRatedURL = baseUrl + "topRecp?"
+    let getDrinksRecipeURL = baseUrl + "drinkrecp"
+    let getFoodRecipeURL = baseUrl + "foodrecp?"
+    let getRecipeDetailURL = baseUrl + "recpDetail"
+    //Detail
+    let getAllReviewsURL = baseUrl + "allReview"
+    let giveRatingAndReviewURL = baseUrl + "giverating"
+    let addFavURL = baseUrl + "favoriterecp"
     //Settings
     let privacyPolicyURl = baseUrl + "privacy"
     let aboutUsURl = baseUrl + "about"
@@ -80,7 +87,6 @@ class WebserviceManager: NSObject{
                 case .failure(_):
                     FTIndicator.showError(withMessage:"Unable to find the result")
                     
-
                     break
                 }
             }
@@ -88,8 +94,7 @@ class WebserviceManager: NSObject{
     }
     //GetRequest
     func alamofireGet(urlString:String,completionHandler:@escaping(AnyObject)-> ()){
-       
-            Alamofire.request(urlString).responseJSON{ response in // method defaults to `.get`
+     Alamofire.request(urlString).responseJSON{ response in // method defaults to `.get`
                 debugPrint(response)
                 print(response)
                 switch(response.result){
@@ -193,7 +198,6 @@ class WebserviceManager: NSObject{
             closure(false, failedURLMessage)
         }
     }
-    
     //login
     func updateProfile(parmeters:[String: String],image:UIImage?, completionHandler closure: @escaping (_ success: Bool,_ user: User?,  _ message: String?) -> Void) {
         if URL(string: updateProfileURL) != nil {
@@ -218,6 +222,169 @@ class WebserviceManager: NSObject{
             })
         }
     }
+    //Search
+    func searchIngredents(parameters: NSDictionary, completionHandler closure: @escaping (_ success: Bool,_ item: [Item], _ message: String?) -> Void) {
+         print(parameters)
+         self.alamofirePost(parameter: parameters, urlString:  searchURL, completionHandler: { (result, error) -> Void in
+                var success = false
+                var message: String?
+                var items = [Item]()
+                let status = result?["response"] as! String
+                if  status == "1" {
+                    success = true
+                    let dict  = result?["data"] as? [NSDictionary]
+                    items = self.getItems(dict!)
+                }
+                else {
+                    let status = result?["response"] as! String
+                    print(status )
+                    message = result?["mesg"] as? String;
+                }
+                closure(success,items,message);
+            })
+        }
+    //GetDrinksRecipe
+    func getDrinksRecipe(completionHandler closure: @escaping (_ success: Bool,_ item: [Item], _ message: String?) -> Void) {
+        var parameters:NSDictionary = [:]
+        if Singleton.sharedInstance.guestUser == false{
+        if let id = Singleton.sharedInstance.user.id{
+            parameters = ["user_id":id]
+        }
+        else{
+            FTIndicator.showError(withMessage: "User not exist")
+            return
+            }
+            
+        }
+        self.alamofirePost(parameter: parameters, urlString:  getDrinksRecipeURL, completionHandler: { (result, error) -> Void in
+            var success = false
+            var message: String?
+            var items = [Item]()
+            let status = result?["response"] as! String
+            if  status == "1" {
+                success = true
+                let dict  = result?["data"] as? [NSDictionary]
+                items = self.getItems(dict!)
+            }
+            else {
+                let status = result?["response"] as! String
+                print(status )
+                message = result?["mesg"] as? String;
+            }
+            closure(success,items,message);
+        })
+    }
+    //GetDrinksRecipe
+  
+    func getAllReviews(recipeId:String, completionHandler closure: @escaping (_ success: Bool,_ item: [NSDictionary], _ message: String?) -> Void) {
+        let parameters:NSDictionary = ["recipe_id":recipeId]
+       self.alamofirePost(parameter: parameters, urlString:  getAllReviewsURL, completionHandler: { (result, error) -> Void in
+            var success = false
+            var message: String?
+            var items = [NSDictionary]()
+            let status = result?["response"] as! String
+            if  status == "1" {
+                success = true
+                items  = result?["data"] as! [NSDictionary]
+                   }
+            else {
+                let status = result?["response"] as! String
+                print(status )
+                message = result?["mesg"] as? String;
+            }
+            closure(success,items,message);
+        })
+    }
+    //GetFoodRecipe
+    func getFoodRecipe(completionHandler closure: @escaping (_ success: Bool,_ item: [Item], _ message: String?) -> Void) {
+        var parameters:NSDictionary = [:]
+        if Singleton.sharedInstance.guestUser == false{
+            if let id = Singleton.sharedInstance.user.id{
+                parameters = ["user_id":id]
+            }
+            else{
+                FTIndicator.showError(withMessage: "User not exist")
+                return
+            }
+            
+        }
+        self.alamofirePost(parameter: parameters, urlString:  getFoodRecipeURL, completionHandler: { (result, error) -> Void in
+            var success = false
+            var message: String?
+            var items = [Item]()
+            let status = result?["response"] as! String
+            if  status == "1" {
+                success = true
+                let dict  = result?["data"] as? [NSDictionary]
+                items = self.getItems(dict!)
+            }
+            else {
+                let status = result?["response"] as! String
+                print(status )
+                message = result?["mesg"] as? String;
+            }
+            closure(success,items,message);
+        })
+    }
+    //GetTopRatedRecipe
+    func getTopRatedRecipe(completionHandler closure: @escaping (_ success: Bool,_ item: [Item], _ message: String?) -> Void) {
+        var parameters:NSDictionary = [:]
+        if Singleton.sharedInstance.guestUser == false{
+            if let id = Singleton.sharedInstance.user.id{
+                parameters = ["user_id":id]
+            }
+            else{
+                FTIndicator.showError(withMessage: "User not exist")
+                return
+            }
+            
+        }
+        self.alamofirePost(parameter: parameters, urlString:  getTopRatedURL, completionHandler: { (result, error) -> Void in
+            var success = false
+            var message: String?
+            var items = [Item]()
+            let status = result?["response"] as! String
+            if  status == "1" {
+                success = true
+                let dict  = result?["data"] as? [NSDictionary]
+                items = self.getFavTopRatedItems(dict!)
+            }
+            else {
+                let status = result?["response"] as! String
+                print(status )
+                message = result?["mesg"] as? String;
+            }
+            closure(success,items,message);
+        })
+    }
+    //GetFavouriteRecipe
+    func getFavouriteRecipe(completionHandler closure: @escaping (_ success: Bool,_ item: [Item], _ message: String?) -> Void) {
+        var parameters:NSDictionary
+        if let id = Singleton.sharedInstance.user.id{
+            parameters = ["user_id":id]
+       }
+        else{
+            FTIndicator.showError(withMessage: "User not exist")
+            return
+        }
+       self.alamofirePost(parameter: parameters, urlString:  getUserFavouriteRecipeURL, completionHandler: { (result, error) -> Void in
+            var success = false
+            var message: String?
+            var items = [Item]()
+            let status = result?["response"] as! String
+            if  status == "1" {
+                success = true
+                let dict  = result?["data"] as? [NSDictionary]
+                items = self.getFavTopRatedItems(dict!)
+            }
+            else {
+                let status = result?["response"] as! String
+                print(status )
+                message = result?["mesg"] as? String;
+            }
+            closure(success,items,message);
+        })
+    }
     //UpdateToken
    func updateToken(_ devicetoken: String, completionHandler closure: @escaping ( _ success: Bool) -> Void) {
         if URL(string: updateDeviceURL) != nil {
@@ -229,8 +396,7 @@ class WebserviceManager: NSObject{
                 let status = result?["response"] as! String
                 if  status == "1" {
                     success = true
-                    
-                }
+                    }
                 else {
                     success = false
                 }
@@ -241,8 +407,7 @@ class WebserviceManager: NSObject{
    //UpdatePassword
     func changePassword(parameters:NSDictionary,  completionHandler closure: @escaping (_ success: Bool, _ message: String?) -> Void) {
         if URL(string: changePasswordURL) != nil {
-            
-             self.alamofirePost(parameter: parameters, urlString:  changePasswordURL, completionHandler: { (result, error) -> Void in
+            self.alamofirePost(parameter: parameters, urlString:  changePasswordURL, completionHandler: { (result, error) -> Void in
                 var success = false;
                 var message: String?;
                 let status = result?["response"] as? String
@@ -257,6 +422,72 @@ class WebserviceManager: NSObject{
         } else {
             closure(false, failedURLMessage)
         }
+    }
+  //  http://nimbyisttechnologies.com/himanshu/fridge/api/apis/giverating?user_id=65&rating=3&review=test&recipe_id=7
+    //AddToFavourite
+    func rateAndReview(parameters:NSDictionary,  completionHandler closure: @escaping (_ success: Bool, _ message: String?) -> Void) {
+        print(parameters)
+        print(giveRatingAndReviewURL)
+        self.alamofirePost(parameter: parameters, urlString:  giveRatingAndReviewURL, completionHandler: { (result, error) -> Void in
+            var success = false;
+            var message: String?;
+            let status = result?["response"] as? String
+            if  status == "1" {
+                success = true;
+                message = result?["mesg"] as? String
+            } else {
+                message = result?["mesg"] as? String
+            }
+            closure(success, message)
+        })
+        
+    }
+    //AddToFavourite
+    func addToFavourite(parameters:NSDictionary,  completionHandler closure: @escaping (_ success: Bool, _ message: String?) -> Void) {
+        print(parameters)
+        self.alamofirePost(parameter: parameters, urlString:  addFavURL, completionHandler: { (result, error) -> Void in
+                var success = false;
+                var message: String?;
+                let status = result?["response"] as? String
+                if  status == "1" {
+                    success = true;
+                    message = result?["mesg"] as? String
+                } else {
+                    message = result?["mesg"] as? String
+                }
+                closure(success, message)
+            })
+        
+    }
+    //Get Ingredients
+    func getIngredients( completionHandler closure:@escaping (_ sucess:Bool, _ data:[Ingredients]) -> Void){
+      self.alamofirePost(parameter: [:], urlString:  getIngredientsURL, completionHandler: { (result, error) -> Void in
+                var success = false
+                var ingerdients = [Ingredients]()
+                let status = result?["response"] as? String
+                if  status == "1" {
+                    success = true
+                let data  = (result?["data"] as? [NSDictionary])!
+                    ingerdients = self.getIngredient(data)
+                }
+              closure(success, ingerdients)
+            })
+        
+    }
+    //Get Ingredients
+    func getFilters( completionHandler closure:@escaping (_ sucess:Bool, _ data:[Ingredients]) -> Void){
+        self.alamofirePost(parameter: [:], urlString:  getFiltersURL, completionHandler: { (result, error) -> Void in
+            var success = false
+            var ingerdients = [Ingredients]()
+            let status = result?["response"] as? String
+            if  status == "1" {
+                success = true
+                let data  = (result?["data"] as? [NSDictionary])!
+                ingerdients = self.getFilters(data)
+            }
+            closure(success, ingerdients)
+        })
+        
     }
     //MARK- Setting Api's
     //Aboutus
@@ -283,7 +514,6 @@ class WebserviceManager: NSObject{
         }
     //Privacy 
     func getprivacy( completionHandler closure:@escaping (_ sucess:Bool, _ data:NSDictionary, _ message:String? ) -> Void){
-        
         if URL(string: privacyPolicyURl) != nil {
             self.alamofireGet(urlString: privacyPolicyURl, completionHandler: { result in
                 var success = false
@@ -309,28 +539,70 @@ class WebserviceManager: NSObject{
         let user = User(id:  dict["id"] as? String ?? "", name: dict["name"] as? String ?? "", email: dict["email"] as? String ?? "", userImageUrlString: dict["image"] as? String ?? "")
         return user
     }
-    //GetSection
-    /*
-    fileprivate func getSection(_ array: [NSDictionary]) -> [Section] {
-        var sections = [Section]()
-        for item in array{
-            let Menu = item.object(forKey: "Menu") as! NSDictionary
-            let items = item.object(forKey: "Item") as! [NSDictionary]
-            let section = Section(name: Menu["name"] as? String ?? "", id:Menu["id"] as? String ?? "", items:getItems(items
-            ))
-        sections += [section]
-            
+    //getItemunderSection
+    fileprivate func getIngredient(_ array: [NSDictionary]) -> [Ingredients] {
+        var ingredients = [Ingredients]()
+        for value in array{
+            let ingredient = value["Ingredient"] as? NSDictionary
+            let value = Ingredients(name:ingredient!["name"] as? String ?? "", id:ingredient!["id"] as? String ?? "")
+            ingredients += [value]
         }
-        return sections
+        return ingredients
     }
+    //getItemunderSection
+    fileprivate func getFilters(_ array: [NSDictionary]) -> [Ingredients] {
+        var filters = [Ingredients]()
+        for value in array{
+            let filter = value["Filter"] as? NSDictionary
+            let value = Ingredients(name:filter!["name"] as? String ?? "", id:filter!["id"] as? String ?? "")
+            filters += [value]
+        }
+        return filters
+    }
+
     //getItemunderSection
     fileprivate func getItems(_ array: [NSDictionary]) -> [Item] {
         var items = [Item]()
-        for item in array{
-            let item = Item(name:item["name"] as? String ?? "", price:item["price"] as? String ?? "", id:item["id"] as? String ?? "", menu_id: item["menu_id"] as? String ?? "", image: item["image"] as? String ?? "")
-                items += [item]
+        for value in array{
+            let item = value["Recipe"] as! NSDictionary
+            var totalReviews = "0"
+            if let value = item["totalReviews"] as? Float {
+                print("\(value)")
+                totalReviews = String(format:"%.0f", value)
+            }
+           
+            print(item)
+            let category = value["Category"] as! NSDictionary
+            let ingredients = value["Ingredient"] as! [NSDictionary]
+            let value = Item(id:item["id"] as? String ?? "", name:item["name"] as? String ?? "", duration:item["time_duration"] as? String ?? "", category:category["name"] as? String ?? "", image: item["image"] as? String ?? "", description: item["description"] as? String ?? "", favoritestatus: item["favourite"] as? String ?? "", ingredients: getCommasepratedIngredents(array: ingredients), review: totalReviews, ratings: item["rating"] as? String ?? "")
+                items += [value]
             }
         return items
-    }*/
+    }
+    //getItemunderSection
+    fileprivate func getFavTopRatedItems(_ array: [NSDictionary] ) -> [Item] {
+        var items = [Item]()
+        for value in array{
+            let item = value["Recipe"] as! NSDictionary
+            let category = item["Category"] as! NSDictionary
+            let ingredients = value["Ingredient"] as! [NSDictionary]
+            let value = Item(id:item["id"] as? String ?? "", name:item["name"] as? String ?? "", duration:item["time_duration"] as? String ?? "", category:category["name"] as? String ?? "", image: item["image"] as? String ?? "", description: item["description"] as? String ?? "", favoritestatus: item["favourite"] as? String ?? "1", ingredients: getCommasepratedIngredents(array: ingredients), review: item["totalReviews"] as? String ?? "", ratings: item["rating"] as? String ?? "")
+            items += [value]
+        }
+        return items
+    }
+fileprivate func getCommasepratedIngredents(array:[NSDictionary]) -> String{
+    var ingredients = ""
+    for value in array{
+        let ingredient = value["Ingredient"] as? NSDictionary
+        if ingredients != ""{
+            ingredients = ingredients + ",\(String(describing: ingredient!["name"]!) )"
+            }else{
+            ingredients = String(describing: ingredient!["name"]!)
+            print(ingredients)
+          }
+    }
     
+    return ingredients
+}
 }
